@@ -8,17 +8,17 @@ public class Cliente extends Personas {
     }
 
     // Metodo
-    public boolean ingresarAlSistema() {
+    public boolean ingresarAlSistema(){
         // Simulación básica
         return true;
     }
 
-    public void registrarCuenta(String tipo) {
+    public void registrarCuenta(String tipo){
         System.out.println("Cuenta de tipo '" + tipo + "' registrada correctamente.");
     }
 
-    public void solicitarPrestamo(double monto) {
-        System.out.println("Solicitud de préstamo por $" + monto + " enviada.");
+    public void solicitarPrestamo(double monto){
+        System.out.println("Solicitud de prestamo por $" + monto + " enviada");
     }
 
     public void agregarTarjetaCredito(String tarjeta) {

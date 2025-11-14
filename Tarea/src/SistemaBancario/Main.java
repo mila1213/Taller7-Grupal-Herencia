@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Cliente cliente = null;
         Empleado empleado = null;
 
@@ -19,20 +19,20 @@ public class Main {
                 System.out.println("4. Salir");
                 System.out.print("Seleccione una opción: ");
 
-                opcion = Integer.parseInt(sc.nextLine());
+                opcion = Integer.parseInt(scanner.nextLine());
 
                 switch (opcion) {
 
                     case 1:
                         System.out.println("\n--- Registro de Cliente ---");
                         System.out.print("Nombre: ");
-                        String nombre = sc.nextLine();
+                        String nombre = scanner.nextLine();
                         System.out.print("Cedula: ");
-                        String cedula = sc.nextLine();
+                        String cedula = scanner.nextLine();
                         System.out.print("Direccion: ");
-                        String direccion = sc.nextLine();
+                        String direccion = scanner.nextLine();
                         System.out.print("Telefono: ");
-                        String telefono = sc.nextLine();
+                        String telefono = scanner.nextLine();
 
                         cliente = new Cliente(nombre, cedula, direccion, telefono);
                         System.out.println("Cliente registrado exitosamente.");
@@ -51,16 +51,16 @@ public class Main {
                         System.out.println("3. Ver Resumen Financiero");
                         System.out.print("Seleccione una opción: ");
 
-                        int opcCliente = Integer.parseInt(sc.nextLine());
+                        int opcCliente = Integer.parseInt(scanner.nextLine());
                         switch (opcCliente) {
                             case 1:
                                 System.out.print("Tipo de cuenta: ");
-                                String tipo = sc.nextLine();
+                                String tipo = scanner.nextLine();
                                 cliente.registrarCuenta(tipo);
                                 break;
                             case 2:
                                 System.out.print("Monto del préstamo: ");
-                                double monto = Double.parseDouble(sc.nextLine());
+                                double monto = Double.parseDouble(scanner.nextLine());
                                 cliente.solicitarPrestamo(monto);
                                 break;
                             case 3:
@@ -74,12 +74,12 @@ public class Main {
                     case 3:
                         System.out.println("\n--- Ingreso Empleado ---");
                         System.out.print("Usuario: ");
-                        String user = sc.nextLine();
+                        String user = scanner.nextLine();
                         System.out.print("Clave: ");
-                        String clave = sc.nextLine();
+                        String clave = scanner.nextLine();
 
                         System.out.print("Rol (Cajero / BalconServicios / JefeAgencia): ");
-                        String rol = sc.nextLine();
+                        String rol = scanner.nextLine();
 
                         empleado = new Empleado("admi", "0000", "Oficina", "0000", user, clave, rol);
 
@@ -96,7 +96,7 @@ public class Main {
                             System.out.println("3. Consultar Saldo");
                             System.out.print("Seleccione: ");
 
-                            int opcCajero = Integer.parseInt(sc.nextLine());
+                            int opcCajero = Integer.parseInt(scanner.nextLine());
 
                             if (cliente == null) {
                                 System.out.println("No existe cliente para operar.");
@@ -106,12 +106,12 @@ public class Main {
                             switch (opcCajero) {
                                 case 1:
                                     System.out.print("Monto: ");
-                                    double ret = Double.parseDouble(sc.nextLine());
+                                    double ret = Double.parseDouble(scanner.nextLine());
                                     empleado.procesarRetiro(cliente, ret);
                                     break;
                                 case 2:
                                     System.out.print("Monto: ");
-                                    double dep = Double.parseDouble(sc.nextLine());
+                                    double dep = Double.parseDouble(scanner.nextLine());
                                     empleado.procesarDeposito(cliente, dep);
                                     break;
                                 case 3:
@@ -124,14 +124,14 @@ public class Main {
                             System.out.println("1. Registrar Nuevo Cliente");
                             System.out.println("2. Actualizar Datos Cliente");
                             System.out.print("Seleccione: ");
-                            int opcB = Integer.parseInt(sc.nextLine());
+                            int opcB = Integer.parseInt(scanner.nextLine());
 
                             switch (opcB) {
                                 case 1:
-                                    System.out.print("Nombre: "); String n = sc.nextLine();
-                                    System.out.print("Cedula: "); String c = sc.nextLine();
-                                    System.out.print("Direccion: "); String d = sc.nextLine();
-                                    System.out.print("Telefono: "); String t = sc.nextLine();
+                                    System.out.print("Nombre: "); String n = scanner.nextLine();
+                                    System.out.print("Cedula: "); String c = scanner.nextLine();
+                                    System.out.print("Direccion: "); String d = scanner.nextLine();
+                                    System.out.print("Telefono: "); String t = scanner.nextLine();
                                     empleado.registrarNuevoCliente(n, c, d, t);
                                     break;
                                 case 2:
@@ -139,8 +139,8 @@ public class Main {
                                         System.out.println("No hay cliente registrado.");
                                         break;
                                     }
-                                    System.out.print("Nueva dirección: "); String nd = sc.nextLine();
-                                    System.out.print("Nuevo teléfono: "); String nt = sc.nextLine();
+                                    System.out.print("Nueva dirección: "); String nd = scanner.nextLine();
+                                    System.out.print("Nuevo teléfono: "); String nt = scanner.nextLine();
                                     empleado.actualizarDatosCliente(cliente, nd, nt);
                                     break;
                             }
@@ -151,7 +151,7 @@ public class Main {
                             System.out.println("2. Generar reporte");
                             System.out.print("Seleccione: ");
 
-                            int opcJ = Integer.parseInt(sc.nextLine());
+                            int opcJ = Integer.parseInt(scanner.nextLine());
 
                             if (cliente == null) {
                                 System.out.println("No existe cliente para evaluar.");
@@ -183,7 +183,6 @@ public class Main {
 
         } while (opcion != 4);
 
-        sc.close();
+        scanner.close();
     }
 }
-

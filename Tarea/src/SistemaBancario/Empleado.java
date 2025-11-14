@@ -14,7 +14,7 @@ public class Empleado extends Personas {
         this.rol = rol;
     }
 
-    // Mwtodo
+    // Metodo
     public boolean autenticarEmpleado(String usuario, String clave) {
         return this.usuario.equals(usuario) && this.clave.equals(clave);
     }
